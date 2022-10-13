@@ -1,7 +1,8 @@
 *** Settings ***
 Library  OperatingSystem
 Library  Process
-Variables  ${CURDIR}/../variables.py
+
+Variables  ${CURDIR}\\variables.py
 
 *** Test Cases ***
 
@@ -17,7 +18,7 @@ Git repository has been setup
 	Zephyr repository has an init script that sets up the workspace
 
 Codeowners file is sorted
-	${result}=  Run Process  ${CURDIR}/../../scripts/ci/check-file-sorted  ${CURDIR}/../../CODEOWNERS
+	${result}=  Run Process  ${CURDIR}\..\..\scripts\ci\check-file-sorted  ${CURDIR}\..\..\CODEOWNERS
 	IF  ${result.rc} != 0
 		Log To Console  CODEOWNERS file is not sorted
 		Log To Console  ${result.stdout}
@@ -27,28 +28,28 @@ Codeowners file is sorted
 *** Keywords ***
 
 Zephyr repository has a top level CMake file
-	File Should Exist  ${PROJECT_ROOT}/CMakeLists.txt
+	File Should Exist  ${PROJECT_ROOT}\CMakeLists.txt
 
 Zephyr repository has a top level Kconfig file
-	File Should Exist  ${PROJECT_ROOT}/Kconfig
+	File Should Exist  ${PROJECT_ROOT}\Kconfig
 
 Zephyr repository has a license file
-	File Should Exist  ${PROJECT_ROOT}/LICENSE
+	File Should Exist  ${PROJECT_ROOT}\LICENSE
 
 Zephyr repository has a gitignore file
-	File Should Exist  ${PROJECT_ROOT}/.gitignore
+	File Should Exist  ${PROJECT_ROOT}\.gitignore
 
 Zephyr repository has a west yaml file
-	File Should Exist  ${PROJECT_ROOT}/west.yml
+	File Should Exist  ${PROJECT_ROOT}\west.yml
 
 Zephyr repository has a CODEOWNERS file
-	File Should Exist  ${PROJECT_ROOT}/CODEOWNERS
+	File Should Exist  ${PROJECT_ROOT}\CODEOWNERS
 
 Zephyr repository has a precommit hook
-	File Should Exist  ${PROJECT_ROOT}/.githooks/pre-commit
+	File Should Exist  ${PROJECT_ROOT}\.githooks\pre-commit
 
 Zephyr repository has a VERSION file
-	File Should Exist  ${PROJECT_ROOT}/VERSION
+	File Should Exist  ${PROJECT_ROOT}\VERSION
 
 Zephyr repository has an init script that sets up the workspace
-	File Should Exist  ${PROJECT_ROOT}/scripts/init
+	File Should Exist  ${PROJECT_ROOT}\scripts\init
