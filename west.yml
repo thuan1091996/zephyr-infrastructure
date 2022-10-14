@@ -1,3 +1,4 @@
+# Careful with space and tabs
 manifest:
   self:
       path: 'zephyr-infrastructure'
